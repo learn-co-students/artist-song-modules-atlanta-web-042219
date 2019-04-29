@@ -11,7 +11,8 @@ class Song
   end
 
   def self.find_by_name(name)
-    @@songs.detect{|a| a.name == name}
+    # @@songs.detect{|a| a.name == name}
+    @@songs.find {|song| song.name == name}
   end
 
   def self.all
@@ -31,6 +32,7 @@ class Song
   end
 
   def to_param
-    name.downcase.gsub(' ', '-')
+    # name.downcase.gsub(' ', '-')
+    @name.downcase.split(' ').join('-')
   end
 end
